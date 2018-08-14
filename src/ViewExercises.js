@@ -16,6 +16,7 @@ const ViewExercises = props => {
             <div className="card" key={index}>
                 <a href={exercise.url} >
                     <h2>{exercise.title}</h2>
+                    <div>Category: {exercise.category}</div>
                     <div>Covers:</div>
                     {renderTopics(exercise.concepts)}
                 </a>

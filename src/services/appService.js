@@ -21,9 +21,16 @@ const appService = () => {
             });
     }
 
+    function saveExercise(payload) {
+        return db.collection('exercise').add({
+            ...payload
+        });
+    }
+
     return {
         init,
-        getExercises
+        getExercises,
+        saveExercise
     }
 }
 

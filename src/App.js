@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import appService from './services/appService';
+
+import AddExercise from './AddExercise';
 import ViewExercises from './ViewExercises';
 
 class App extends Component {
@@ -23,6 +25,7 @@ class App extends Component {
 	render() {
 		return (
 			<div>
+				<AddExercise />
 				<ViewExercises exercises={this.state.exercises} />
 			</div>
 		);

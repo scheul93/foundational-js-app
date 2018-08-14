@@ -1,21 +1,32 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import appService from './services/appService';
+import ViewExercises from './ViewExercises';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			exercises: []
+		};
+	}
+
+	componentDidMount() {
+		appService.getExercises().then(resp => {
+			this.setState({
+				exercises: resp
+			})
+		})
+	}
+
+	render() {
+		return (
+			<div>
+				<ViewExercises exercises={this.state.exercises} />
+			</div>
+		);
+	}
 }
 
 export default App;
